@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const toQueryString = (params) => {
+  return '?' + Object.keys(params).map(i => `${i}=${encodeURIComponent(params[i])}`).join('&')
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  toQueryString
 }
